@@ -1,0 +1,29 @@
+version: "3.8"
+services:
+  frontend:
+    build:
+       context: .
+       dockerfile: frontend/Dockerfile
+    container_name: micro-frontend
+    image: chedli01/microservices-cicd-frontend:latest
+    depends_on:
+      - user_service
+      - product_service
+      - order_service
+    ports:
+      - "80:80"
+
+  user_service:
+    build: ./user-service
+    container_name: micro-user
+    image: chedli01/microservices-cicd-user:latest
+
+  product_service:
+    build: ./product-service
+    container_name: micro-product
+    image: chedli01/microservices-cicd-product:latest
+  order_service:
+    build: ./order-service
+    container_name: micro-order
+    image: chedli01/microservices-cicd-order:latest
+
