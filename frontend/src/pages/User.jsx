@@ -1,5 +1,14 @@
 export default function User(){
+    const handleClick = async()=>{
+        const users = await fetch("/api/users")
+        console.log(users)
+
+    }
     return(
-        <h1>user page</h1>
+        <div>
+           <h1>user page</h1>
+           <button onClick={handleClick}>ClickMe</button>
+
+        </div>
     )
 }
