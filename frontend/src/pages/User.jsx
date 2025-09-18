@@ -1,7 +1,7 @@
 export default function User(){
     const handleClick = async()=>{
         const users = await fetch("/api/users")
-        console.log(users)
+        console.log('users',users)
 
     }
     return(
